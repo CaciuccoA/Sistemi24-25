@@ -10,7 +10,7 @@ public class Server {
 
     public static void main(String[] args) {
         // Nome del file aggiornato
-        String nomeFileCSV = "C:\\Users\\angelo.casciuc\\Desktop\\Sistemi24-25\\ProgettoSistemi\\Regione-Emilia-Romagna---Strutture-ricettive-alberghiere-e-non-dato-geografico.csv";
+        String nomeFileCSV = "C:\\Users\\angelo.casciuc\\Documents\\Sistemi24-25\\Server\\Regione-Emilia-Romagna---Strutture-ricettive-alberghiere-e-non-dato-geografico.csv";
         caricaCSV(nomeFileCSV);
 
 

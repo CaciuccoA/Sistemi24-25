@@ -2,11 +2,15 @@ import java.io.*;
 import java.net.*;
 import java.util.List;
 
+
+
+
 public class GestoreClient implements Runnable {
     private Socket socket;
     private BufferedReader input;
     private PrintWriter output;
     private List<String[]> dati;
+
 
 
 
@@ -16,16 +20,27 @@ public class GestoreClient implements Runnable {
     }
 
 
+
+
     @Override
     public void run() {
         try {
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             output = new PrintWriter(socket.getOutputStream(), true);
+
+
+
+
             output.println("Benvenuto! Comandi disponibili: GET_ROW <n>, GET_COLUMN <n>, SHOW_ALL, exit");
+
+
+
+
             String comando;
             while ((comando = input.readLine()) != null) {
                 gestisciComando(comando.trim());
             }
+
 
 
 
@@ -42,6 +57,8 @@ public class GestoreClient implements Runnable {
 
 
 
+
+    // Metodo per elaborare i comandi inviati dal client
     private void gestisciComando(String comando) {
         if (comando.startsWith("GET_ROW")) {
             try {
@@ -54,6 +71,7 @@ public class GestoreClient implements Runnable {
             } catch (Exception e) {
                 output.println("ERROR: Formato comando errato. Usa GET_ROW <numero>");
             }
+
 
 
 
@@ -74,10 +92,12 @@ public class GestoreClient implements Runnable {
 
 
 
+
         } else if (comando.equalsIgnoreCase("SHOW_ALL")) {
             for (String[] riga : dati) {
                 output.println(String.join(" | ", riga));
             }
+
 
 
 
@@ -88,6 +108,7 @@ public class GestoreClient implements Runnable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
 
 
 
